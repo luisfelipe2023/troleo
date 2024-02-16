@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    .swal2-title {
+        font-family: sans-serif;
+    }
+
+    * {
+        margin: 0;
+    }
+
+    .contenedor {
+        background-image: url(https://static.vecteezy.com/system/resources/previews/023/947/054/non_2x/exotic-seamless-pattern-with-yellow-bananas-on-colorful-background-colored-banana-seamless-pattern-on-background-illustration-vector.jpg);
+        background-size: cover;
+        width: 100vw;
+        height: 430px;
+        text-align: center;
+        opacity: 0.9;
+        padding-top: 350px;
+    }
+
+    p {
+        font-size: xx-large;
+        font-family: sans-serif;
+        font-weight: 900;
+    }
+
+    button {
+        font-size: xx-large;
+        padding: 0.75em;
+    }
+
+    #yesBtn {
+        transform: translate(-100%, 0);
+    }
+
+    #noBtn {
+        position: absolute;
+    }
+
+    @media only screen and (max-width: 600px) {
+  .swal2-image {
+    margin-top: 10px; /* Ajusta el margen superior */
+  }
+}
+</style>
+<body>
+    
+    <div class="contenedor">
+        <p>¿ERES GAY?</p>
+        
+        <button id="yesBtn">Si</button>
+        <button id="noBtn">No</button>
+    </div>
+    <script>
+Swal.fire({
+    title: "HOLA , PUEDES RESPONDER ESTA PREGUNTA???",
+    width: 600,
+    padding: "3em",
+    color: "#000",
+    background: "#fff url(https://cdn.pixabay.com/photo/2020/01/23/11/28/rainy-banana-4787492_960_720.png)",
+    backdrop: `
+        #E6EAA7
+        url("https://i.gifer.com/tu8.gif")
+        left bottom
+        no-repeat
+    `,
+    showCancelButton: true,
+    cancelButtonText: 'No',
+    allowOutsideClick: false // Evita que se cierre haciendo clic fuera del modal
+}).then((result) => {
+    if (!result.isConfirmed) {
+        Swal.fire({
+            title: 'RESPONDE OE NO SEAS CABREJO',
+            text: 'MALDITO CABRO',
+            imageUrl: 'https://i.gifer.com/CKA6.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Ya lo sabía',
+            confirmButtonText: 'Aceptar',
+            showConfirmButton: false, // No mostrar botón de aceptar
+        });
+    }
+});
+
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            Swal.fire({
+                title: 'Ya lo sabía',
+                text: 'MALDITO CABRO',
+                imageUrl: 'https://i.gifer.com/CKA6.gif',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Ya lo sabía',
+                confirmButtonText: 'Aceptar',
+            });
+        });
+
+        const noBtn = document.querySelector('#noBtn');
+
+        noBtn.addEventListener('mouseover', function () {
+            const randomX = parseInt(Math.random()*100);
+            const randomY = parseInt(Math.random()*100);
+            noBtn.style.setProperty('top',randomY+'%');
+            noBtn.style.setProperty('left',randomX+'%');
+            noBtn.style.setProperty('transform',`translate(-${randomX}%,-${randomY}%)`);
+        });
+    </script>
+</body>
+</html>
